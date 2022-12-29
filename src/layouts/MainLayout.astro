@@ -8,6 +8,7 @@ const { title = "Default title", description = "Default description" } =
   Astro.props as Props;
 
 import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!DOCTYPE html>
@@ -24,12 +25,55 @@ import NavBar from "../components/NavBar.astro";
   <body>
     <NavBar />
     <slot />
+    <Footer />
   </body>
 </html>
 
-<style>
+<style is:global>
   * {
-    background-color: black;
-    color: white;
+    --text-light: #282828;
+    --accent1-light: #458588;
+    --accent2-light: #af3a03;
+
+    --bg-light: #fbf3c7;
+
+    --text-dark: #fbf3c7;
+    --accent1-dark: #458588; /* blue */
+    --accent2-dark: #fe8019; /* orange */
+
+    --bg-dark: #282828;
+
+    scroll-behavior: smooth;
+    scroll-padding: 2rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    * {
+      color: var(--text-dark);
+      background-color: var(--bg-dark);
+    }
+
+    h1 {
+      color: var(--accent1-dark);
+    }
+
+    h2 {
+      color: var(--accent2-dark);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    * {
+      color: var(--text-light);
+      background-color: var(--bg-light);
+    }
+
+    h1 {
+      color: var(--accent1-light);
+    }
+
+    h2 {
+      color: var(--accent2-light);
+    }
   }
 </style>

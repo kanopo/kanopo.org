@@ -1,30 +1,10 @@
 ---
 const { frontmatter } = Astro.props;
 
+import MainLayout from "./MainLayout.astro";
 
-import NavBar from '../components/NavBar.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={ frontmatter.description } />
-    <link rel="icon" type="image/x-icon" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png">
-    <title>{ frontmatter.title }</title>
-  </head>
-  <body>
-    <NavBar />
-    <slot />
-  </body>
-</html>
-
-<style>
-  * {
-    background-color: black;
-    color: white;
-  }
-</style>
+<MainLayout title={frontmatter.title} description={frontmatter.description}>
+  <slot />
+</MainLayout>
