@@ -1,8 +1,12 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Home"
+const description = "Sito di dmodmo dove scrive il suo blog dei sentimenti."
+
 ---
 
-<MainLayout title="Home">
+<MainLayout {title} {description}>
   <h1>Ciao</h1>
   <p>Blog dei sentimenti</p>
 </MainLayout>
