@@ -1,16 +1,26 @@
-
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import PostComponent from "../../components/PostComponent.astro";
 
-const allPosts = await Astro.glob('./*.md')
+const allPosts = await Astro.glob("./*.md");
 ---
 
 <MainLayout title="Blog">
-  <h1>Blog</h1>
-  <div class="border-2 p-2 m-2">
-    {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}, Desc:{post.frontmatter.description}</a></li>)}
+  <div class="border-2 h-[50vh] flex flex-col justify-center align-middle">
+    <h1>Blog</h1>
+    <div class="flex justify-center align-middle">
+      <div class="flex flex-col w-[80vw]">
+        {
+          allPosts.map((post) => (
+            <a href={post.url}>
+              <PostComponent
+                title={post.frontmatter.title}
+                description={post.frontmatter.description}
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </MainLayout>
-
-
-
