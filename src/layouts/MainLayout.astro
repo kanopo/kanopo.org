@@ -24,7 +24,11 @@ import Footer from "../components/Footer.astro";
   </head>
   <body>
     <NavBar />
-    <slot />
+    <div class="h-[90vh] w-[100vw] flex justify-center items-center">
+      <div class="h-[80vh] w-[80vw]">
+        <slot />
+      </div>
+    </div>
     <Footer />
   </body>
 </html>
@@ -39,7 +43,7 @@ import Footer from "../components/Footer.astro";
 
     --text-dark: #fbf3c7;
     --accent1-dark: #458588; /* blue */
-    --accent2-dark: #fe8019; /* orange */
+    --accent2-dark: #af3a03; /* orange */
 
     --bg-dark: #282828;
 
