@@ -7,7 +7,7 @@ interface Props {
 const { title = "Default title", description = "Default description" } =
   Astro.props as Props;
 
-import NavBar from "../components/NavBar.astro";
+import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -23,7 +23,7 @@ import Footer from "../components/Footer.astro";
     <title>{title}</title>
   </head>
   <body>
-    <NavBar />
+    <Header client:only="react"/>
     <div class="h-[90vh] w-[100vw] flex justify-center items-center">
       <div class="h-[80vh] w-[80vw]">
         <slot />

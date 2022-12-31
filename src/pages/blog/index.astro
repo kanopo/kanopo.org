@@ -2,8 +2,13 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import PostComponent from "../../components/PostComponent.astro";
 
+import { formatBlogPosts } from "../../js/utils.js"
+
 const allPosts = await Astro.glob("./*.md");
+const formattedPosts = formatBlogPosts(allPosts)
 ---
+
+
 
 <MainLayout title="Blog">
   <div class="flex flex-col justify-center items-center">
@@ -11,11 +16,14 @@ const allPosts = await Astro.glob("./*.md");
     <div class="flex justify-center items-center">
       <div class="flex flex-col w-[80vw]">
         {
-          allPosts.map((post) => (
+          formattedPosts.map((post) => (
             <a href={post.url}>
               <PostComponent
                 title={post.frontmatter.title}
                 description={post.frontmatter.description}
+                pubDate={post.frontmatter.pubDate}
+                author={post.frontmatter.author}
+                tags={post.frontmatter.tags}
               />
             </a>
           ))

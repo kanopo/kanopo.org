@@ -1,8 +1,23 @@
 ---
-const {title, description} = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  pubDate: string;
+  author: string;
+  tags: string[];
+}
+
+const { title, description, pubDate, author, tags } = Astro.props as Props;
 ---
 
 
 <div class="border-2 p-2 rounded-md my-2">
-<p>{title}</p>
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <p>{new Date(pubDate).toLocaleDateString('it')}</p>
+  <p>{author}</p>
+
+  <div class="flex justify-start items-center">
+    {tags.map((tag) => <p class="pr-2">{tag.charAt(0).toUpperCase() + tag.slice(1)}</p>)}
+  </div>
 </div>

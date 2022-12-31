@@ -5,6 +5,7 @@ pubDate: '2022-12-29'
 description: 'Post di prova swag del blog di dmodmo'
 author: 'dmo'
 tags: ['sentimenti', 'tech', 'procrastination']
+draft: false
 ---
 
 

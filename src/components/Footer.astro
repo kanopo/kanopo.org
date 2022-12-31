@@ -1,5 +1,12 @@
 <div class="w-[100vw] h-[5vh] flex justify-center items-center">
   <div class="w-[90vw] h-[5vh] flex justify-center items-center">
-    <h1>Footer</h1>
+    <h2 id="copyright"></h2>
   </div>
 </div>
+
+
+<script>
+  document.querySelector("#copyright").textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>
